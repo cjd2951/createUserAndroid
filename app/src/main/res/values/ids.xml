@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item
+        type="id"
+        name="create_user_prompt" />
+    <item
+        type="id"
+        name="username" />
+    <item
+        type="id"
+        name="gender" />
+    <item
+        type="id"
+        name="male" />
+    <item
+        type="id"
+        name="female" />
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cdavis.testapp.CreateUserActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/create_user_prompt"
+        android:text="@string/create_user_prompt"
+        android:layout_margin="16dp"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:id="@id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/create_user_prompt"
+        android:layout_below="@id/create_user_prompt"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textSize="36sp"
+        />
+
+    <RadioGroup
+        android:id="@id/gender"
+        android:layout_below="@id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <RadioButton
+            android:id="@id/female"
+            android:button="@drawable/ic_femalesvg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/female_image_label" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@id/male"
+            android:button="@drawable/ic_malesvg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+
+            android:text="@string/male_image_label" >
+        </RadioButton>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/createUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:layout_below="@id/gender"
+        android:text="@string/create_user_button_text"
+        android:onClick="onClick"
+        />
+
+</RelativeLayout>
