@@ -11,6 +11,9 @@ import android.widget.Toast
 import android.widget.EditText
 import android.widget.RadioGroup
 import com.cdavis.testapp.R.id.male
+import com.google.firebase.firestore.FirebaseFirestore
+
+
 
 
 
@@ -18,6 +21,8 @@ import com.cdavis.testapp.R.id.male
 class CreateUserActivity : AppCompatActivity() {
 
     private var male = true
+
+    var db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,13 +43,20 @@ class CreateUserActivity : AppCompatActivity() {
     }
 
     fun onClick(view: View) {
-        val input = findViewById<View>(R.id.username) as EditText
-        val string = input.text.toString()
+        val firstName = findViewById<View>(R.id.first_name_input) as EditText
+        val lastName = findViewById<View>(R.id.last_name_input) as EditText
+        val username = findViewById<View>(R.id.username) as EditText
+        val first = firstName.text.toString()
+        val last = lastName.text.toString()
+        val user = username.text.toString()
+
+        
+
         var gender = "female"
         if(male){
             gender = "male"
         }
-        Toast.makeText(this, "User ${string} (${gender}) created.", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "User ${user} (${gender}) created.", Toast.LENGTH_LONG).show()
     }
 
     fun setButtonAlphas(maleButton: Button, femaleButton: Button){

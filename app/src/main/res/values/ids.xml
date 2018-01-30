@@ -5,6 +5,12 @@
         name="create_user_prompt" />
     <item
         type="id"
+        name="create_first_prompt" />
+    <item
+        type="id"
+        name="create_last_prompt" />
+    <item
+        type="id"
         name="username" />
     <item
         type="id"
@@ -15,4 +21,10 @@
     <item
         type="id"
         name="female" />
+    <item
+        type="id"
+        name="first_name_input" />
+    <item
+        type="id"
+        name="last_name_input" />
 </resources>

@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Test App</string>
-    <string name="create_user_prompt">User</string>
+    <string name="create_user_prompt">Username</string>
     <string name="male_image_label">Male</string>
     <string name="female_image_label">Female</string>
     <string name="create_user_button_text">Create</string>
+    <string name="create_first_name_text">First</string>
+    <string name="create_last_name_text">Last</string>
 </resources>
