@@ -1,32 +1,36 @@
 package com.cdavis.testapp
 
-import android.graphics.drawable.Drawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v4.graphics.drawable.DrawableCompat
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import android.widget.EditText
 import android.widget.RadioGroup
-import com.cdavis.testapp.R.id.male
 import com.google.firebase.firestore.FirebaseFirestore
-
-
-
-
+import android.util.Log
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
 
 
 class CreateUserActivity : AppCompatActivity() {
 
+    private val TAG = "CreateUserActivity"
     private var male = true
 
-    var db = FirebaseFirestore.getInstance()
+
+
+    private var db: FirebaseFirestore? = null
+
+    private var mFirebaseAnalytics: FirebaseAnalytics? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_user)
+        FirebaseApp.initializeApp(this);
+        db = FirebaseFirestore.getInstance()
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
+
 
         val radioGroup = findViewById<RadioGroup>(R.id.gender)
         val maleButton = findViewById<Button>(R.id.male)
@@ -50,7 +54,13 @@ class CreateUserActivity : AppCompatActivity() {
         val last = lastName.text.toString()
         val user = username.text.toString()
 
-        
+        val userMap = hashMapOf<String, String>()
+
+        userMap.put("first", first)
+        userMap.put("last", last)
+        userMap.put("username", user)
+
+        saveUserInDb(userMap)
 
         var gender = "female"
         if(male){
@@ -67,5 +77,16 @@ class CreateUserActivity : AppCompatActivity() {
             femaleButton.alpha = 1f
             maleButton.alpha = 0.5f
         }
+    }
+
+
+    fun saveUserInDb(user: Map<String, String>){
+            // Add a new document with a generated ID
+            db!!.collection("users")
+                    .add(user)
+                    .addOnSuccessListener { documentReference -> Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.id) }
+                    .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
+
+
     }
 }

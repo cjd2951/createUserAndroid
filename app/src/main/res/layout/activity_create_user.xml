@@ -6,69 +6,70 @@
     android:layout_height="match_parent"
     tools:context="com.cdavis.testapp.CreateUserActivity">
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@id/create_first_prompt"-->
-        <!--android:text="@string/create_first_name_text"-->
-        <!--android:layout_margin="16dp"-->
-        <!--android:labelFor="@id/first_name_input"-->
-        <!--android:textSize="24sp"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/create_first_prompt"
+        android:text="@string/create_first_name_text"
+        android:layout_margin="16dp"
+        android:labelFor="@id/first_name_input"
+        android:textSize="14sp"/>
 
     <EditText
         android:id="@id/first_name_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/last_name_input"
+        android:layout_alignBottom="@+id/last_name_input"
+        android:layout_alignStart="@+id/create_user_prompt"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/create_first_name_text"
-        android:layout_margin="16dp"
-        android:textSize="14sp"
-        />
+        android:textSize="14sp" />
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@id/create_last_prompt"-->
-        <!--android:text="@string/create_last_name_text"-->
-        <!--android:layout_below="@id/first_name_input"-->
-        <!--android:layout_margin="16dp"-->
-        <!--android:labelFor="@id/last_name_input"-->
-        <!--android:textSize="24sp"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/create_last_prompt"
+        android:text="@string/create_last_name_text"
+        android:layout_toEndOf="@id/first_name_input"
+        android:layout_margin="16dp"
+        android:labelFor="@id/last_name_input"
+        android:textSize="14sp"/>
 
     <EditText
         android:id="@id/last_name_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/first_name_input"
+        android:layout_below="@id/create_last_prompt"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/create_last_name_text"
         android:layout_margin="16dp"
         android:textSize="14sp"
         />
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@id/create_user_prompt"-->
-        <!--android:layout_below="@id/last_name_input"-->
-        <!--android:labelFor="@id/username"-->
-        <!--android:text="@string/create_user_prompt"-->
-        <!--android:layout_margin="16dp"-->
-        <!--android:textSize="24sp"/>-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@id/create_user_prompt"
+        android:layout_below="@id/last_name_input"
+        android:labelFor="@id/username"
+        android:text="@string/create_user_prompt"
+        android:layout_margin="16dp"
+        android:textSize="14sp"/>
 
     <EditText
         android:id="@id/username"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/last_name_input"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/create_user_prompt"
+        android:layout_marginTop="22dp"
+        android:layout_alignStart="@id/create_first_prompt"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_margin="16dp"
-        android:text="@string/create_user_prompt"
-        android:textSize="14sp"
-        />
+        android:textSize="14sp" />
 
     <RadioGroup
         android:id="@id/gender"
